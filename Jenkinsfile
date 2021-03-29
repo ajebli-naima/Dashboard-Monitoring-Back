@@ -3,14 +3,15 @@ def version = ''
 pipeline {
 
     environment {
-        registry = "docker-registry.leyton.com:5000"
+        registry = "registry.local.com:5000"
     }
 
     agent any
 
     tools {
-        maven 'Maven 3.6.2'
-        jdk 'JDK 8.221'
+         maven "maven"
+        jdk "jdk8"
+
     }
 
     stages {
