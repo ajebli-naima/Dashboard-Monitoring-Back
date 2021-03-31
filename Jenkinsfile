@@ -2,12 +2,12 @@ node('') {
 
 stage 'buildInDevelopment'
 
-openshiftBuild(namespace: 'my-project', buildConfig: 'dash-monitoring-back', showBuildLogs: 'true')
+openshiftBuild(namespace: 'cicd', buildConfig: 'dash-monitoring-back', showBuildLogs: 'true')
 
 stage 'deployInDevelopment'
 
-openshiftDeploy(namespace: 'my-project', deploymentConfig: 'dash-monitoring-back')
+openshiftDeploy(namespace: 'cicd', deploymentConfig: 'dash-monitoring-back')
 
-openshiftScale(namespace: 'my-project', deploymentConfig: 'dash-monitoring-back',replicaCount: '3')
+openshiftScale(namespace: 'cicd', deploymentConfig: 'dash-monitoring-back',replicaCount: '2')
 
 }
