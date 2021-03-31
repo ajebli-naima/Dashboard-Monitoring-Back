@@ -8,6 +8,6 @@ stage 'deployInDevelopment'
 
 openshiftDeploy(namespace: 'my-project', deploymentConfig: 'dash-monitoring-back')
 
-openshiftScale(namespace: 'my-project', deploymentConfig: 'dash-monitoring-back',replicaCount: '2')
+openshiftScale(namespace: 'my-project', deploymentConfig: 'dash-monitoring-back',replicaCount: '3')
 
 }
