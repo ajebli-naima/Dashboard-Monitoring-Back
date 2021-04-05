@@ -12,5 +12,4 @@ public class Paths {
     /* GitlabController */
     public static final String GITLAB = "/gitlab";
 
-
 }
