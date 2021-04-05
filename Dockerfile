@@ -9,5 +9,5 @@ RUN mvn -f pom.xml clean package -DskipTests
 FROM openjdk:8-jre-stretch
 EXPOSE 8080
 RUN echo -e "***Deploy JAR***"
-ADD target/backend*.jar dashboard.jar
+COPY --from=build target/backend*.jar dashboard.jar
 CMD ["java", "-jar", "/dashboard.jar"]
