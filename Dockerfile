@@ -6,7 +6,11 @@ RUN mvn install -DskipTests
 
 FROM openjdk:8-jre-alpine
 RUN echo -e "***Deploy JAR***"
-COPY --from=Build /app/target/backend*.jar /app/dashboard.jar
+WORKDIR /app
+COPY --from=Build target/backend-0.0.1-SNAPSHOT.jar /app/dashboard.jar
+RUN addgroup -S spring && adduser -S spring -G spring
+USER spring:spring
+
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/app/dashboard.jar"]
+ENTRYPOINT ["java", "-jar", "/dashboard.jar"]
 
