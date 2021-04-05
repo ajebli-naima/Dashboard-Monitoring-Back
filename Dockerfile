@@ -8,5 +8,5 @@ FROM openjdk:8-jre-alpine
 RUN echo -e "***Deploy JAR***"
 COPY --from=Build /app/target/backend*.jar /app/dashboard.jar
 EXPOSE 8080
-CMD ["java", "-jar", "/app/dashboard.jar"]
+ENTRYPOINT ["java", "-jar", "/app/dashboard.jar"]
 
