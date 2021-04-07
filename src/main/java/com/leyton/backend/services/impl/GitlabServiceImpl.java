@@ -69,9 +69,9 @@ public class GitlabServiceImpl implements GitlabService {
 
         Application application = applicationService.findApplication(Long.valueOf(idProject));
         //String path = application.getUrlGitlab().split("http://172.16.0.112/")[1];
-        List<Project> projects = gitLabApi.getGroupApi().getProjects(path);
+        List<Project> projects = gitLabApi.getGroupApi().getProjects();
         if (projects.isEmpty()) {
-            projects = Arrays.asList(gitLabApi.getProjectApi().getProject(path));
+            projects = Arrays.asList(gitLabApi.getProjectApi().getProject());
         }
 
         //this.startCron();
