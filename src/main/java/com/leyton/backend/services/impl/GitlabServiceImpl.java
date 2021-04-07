@@ -346,6 +346,5 @@ public class GitlabServiceImpl implements GitlabService {
 
     void authentificationGitlab() throws GitLabApiException {
         gitLabApi = new GitLabApi("http://172.16.0.112/", "LosXScycd9Kx17WYskzB");
-        gitLabApi.sudo("najebli");
     }
 }
