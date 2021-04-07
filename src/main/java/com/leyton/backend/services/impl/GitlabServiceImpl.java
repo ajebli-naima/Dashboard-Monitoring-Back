@@ -74,8 +74,8 @@ public class GitlabServiceImpl implements GitlabService {
             projects = Arrays.asList(gitLabApi.getProjectApi().getProject(path));
         }
 
-        //this.startCron();
-        //List<Project> list = gitLabApi.getProjectApi().getProjects();
+        this.startCron();
+        List<Project> list = gitLabApi.getProjectApi().getProjects();
 
         return projects;
 
