@@ -68,7 +68,7 @@ public class GitlabServiceImpl implements GitlabService {
         this.authentificationGitlab();
 
         Application application = applicationService.findApplication(Long.valueOf(idProject));
-        String path = application.getUrlGitlab().split("http://gitlab.leyton.fr/")[1];
+        String path = application.getUrlGitlab().split("http://172.16.0.112/")[1];
         List<Project> projects = gitLabApi.getGroupApi().getProjects(path);
         if (projects.isEmpty()) {
             projects = Arrays.asList(gitLabApi.getProjectApi().getProject(path));
@@ -84,7 +84,7 @@ public class GitlabServiceImpl implements GitlabService {
     @Override
     public List<Branch> findAllBranchsPerProjectPath(int idProject) throws GitLabApiException {
         Application application = applicationService.findApplication(Long.valueOf(idProject));
-        String path = application.getUrlGitlab().split("http://gitlab.leyton.fr/")[1];
+        String path = application.getUrlGitlab().split("http://172.16.0.112/")[1];
         this.authentificationGitlab();
         List<Branch> branches = gitLabApi.getRepositoryApi().getBranches(path);
         return branches;
@@ -204,7 +204,7 @@ public class GitlabServiceImpl implements GitlabService {
         this.authentificationGitlab();
 
         //Application application = applicationService.findApplication(Long.valueOf(idProject));
-        //String path = application.getUrlGitlab().split("http://gitlab.leyton.fr/")[1];
+        //String path = application.getUrlGitlab().split("http://172.16.0.112/")[1];
 
         if (filterRequest.getDateFrom() == null) {
             String sDate1 = "31/12/1998";
