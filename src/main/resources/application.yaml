@@ -11,7 +11,7 @@ spring:
       ddl-auto: ${SPRING_JPA_HIBERNATE_DDL:update}
     properties.hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
   datasource:
-    url: jdbc:mysql://${SPRING_DATASOURCE_HOST:localhost}:3306/devopsdatabase
+    url: jdbc:mysql://${SPRING_DATASOURCE_HOST:localhost}:3306/devopsDatabase
     username: ${SPRING_DATASOURCE_USERNAME:sectorisationuser}
     password: ${SPRING_DATASOURCE_PASSWORD:sectorisationuser}
     driverClassName: com.mysql.jdbc.Driver
