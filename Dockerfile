@@ -7,12 +7,9 @@ RUN mvn clean package -DskipTests
 WORKDIR /workspace/target
 RUN ls
 
-
-FROM openjdk:8-jre-alpine
 RUN echo -e "***Deploy JAR***"
-WORKDIR /workspace
 
-COPY --from=Build target/backend-0.0.1-SNAPSHOT.jar dashboard.jar
+COPY --from=Build backend-0.0.1-SNAPSHOT.jar dashboard.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "dashboard.jar"]
 
