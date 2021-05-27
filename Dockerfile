@@ -1,8 +1,13 @@
 FROM maven:3.5-jdk-8-alpine AS Build
-COPY . .
+
+WORKDIR /build
+COPY . /build/
 RUN mvn clean package -DskipTests
-RUN ls
-ADD  target/backend-0.0.1-SNAPSHOT.jar dashboard.jar
+
+FROM openjdk:8-jre-alpine
+WORKDIR /app
+COPY --from=Build  /build/backend-0.0.1-SNAPSHOT.jar /app/dashboard.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "dashboard.jar"]
+
+CMD ["java", "-jar", "dashboard.jar"]
 
