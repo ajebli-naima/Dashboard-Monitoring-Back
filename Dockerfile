@@ -4,6 +4,7 @@ WORKDIR /workspace
 COPY . .
 RUN ls
 RUN mvn clean package -DskipTests
+RUN ls
 
 
 FROM openjdk:8-jre-alpine
