@@ -8,7 +8,7 @@ FROM openjdk:8-jre-alpine
 RUN echo -e "***Deploy JAR***"
 WORKDIR /workspace/output//
 RUN ls -l
-COPY --from=Build target/backend-0.0.1-SNAPSHOT.jar /dashboard.jar
+COPY --from=Build ./target/backend-0.0.1-SNAPSHOT.jar ./dashboard.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/dashboard.jar"]
+ENTRYPOINT ["java", "-jar", "./dashboard.jar"]
 
