@@ -6,8 +6,8 @@ RUN ls
 RUN mvn clean package -DskipTests
 WORKDIR /workspace/target
 RUN ls
-
-RUN echo -e "***Deploy JAR***"
+WORKDIR /workspace/source
+RUN ls
 
 COPY  target/backend-0.0.1-SNAPSHOT.jar dashboard.jar
 EXPOSE 8080
