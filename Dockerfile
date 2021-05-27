@@ -9,7 +9,7 @@ RUN ls
 
 RUN echo -e "***Deploy JAR***"
 
-COPY  backend-0.0.1-SNAPSHOT.jar dashboard.jar
+COPY  target/backend-0.0.1-SNAPSHOT.jar dashboard.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "dashboard.jar"]
 
