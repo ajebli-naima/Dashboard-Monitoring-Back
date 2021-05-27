@@ -4,6 +4,7 @@ WORKDIR /workspace
 COPY . .
 RUN ls
 RUN mvn clean package -DskipTests
+WORKDIR /workspace/target
 RUN ls
 
 
