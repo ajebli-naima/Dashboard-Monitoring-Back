@@ -2,6 +2,7 @@ FROM maven:3.5-jdk-8-alpine AS Build
 RUN ls /
 WORKDIR /workspace
 COPY . .
+RUN ls
 RUN mvn clean package -DskipTests
 
 
