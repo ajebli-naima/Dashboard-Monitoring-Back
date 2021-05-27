@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: dashboard-monitoring-back
+  name: dashboard-monitoring-back
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dashboard-monitoring-back
+  template:
+    metadata:
+      labels:
+        app: dashboard-monitoring-back
+    spec:
+      containers:
+        - image: quay.io/openshift-pipeline/dashboard-monitoring-back:latest
+          imagePullPolicy: Always
+          name: dashboard-monitoring-back
+          ports:
+            - containerPort: 8080
+              protocol: TCP
